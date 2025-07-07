@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#667eea">
+    <title>Knee Recovery Fitness Tracker</title>
+    
+    <!-- PWA Manifest inline -->
+    <link rel="manifest" href="data:application/json;charset=utf-8;base64,eyJuYW1lIjoiS25lZSBSZWNvdmVyeSBGaXRuZXNzIFRyYWNrZXIiLCJzaG9ydF9uYW1lIjoiRml0VHJhY2tlciIsInN0YXJ0X3VybCI6Ii4iLCJkaXNwbGF5Ijoic3RhbmRhbG9uZSIsImJhY2tncm91bmRfY29sb3IiOiIjZmZmZmZmIiwidGhlbWVfY29sb3IiOiIjNjY3ZWVhIiwiaWNvbnMiOlt7InNyYyI6ImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjRiV3h1Y3owaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNQzl6ZG1jaUlIWnBaWGRDYjNnOUlqQWdNQ0E0TURBZ09EQXdJaUJtYVd4c1BTSWpOalkzWldWaElqNDhjbVZqZENCNFBTSXlNREFpSUhrOUlqSXdNQ0lpSUhkcFpIUm9QU0kwTURBaUlHaGxhV2RvZEQwaU5EQXdJaUJ5ZUQwaU5EQWlJR1pwYkd3OUlpTTJOamRsWldFaUx6NDhkR1Y0ZENCNFBTSTBNREFpSUhrOUlqUXdNQ0lpSUdacGJHdzlJaU0yTmpkbFpXRWlJSFJsZUhRdFlXNWphRzl5UFNKdGFXUmtiR1VpSUdadmJuUXRjMmw2WlQwaU56QWlQa1kxTDNSbGVIUTlTbkJ6WEc0OEwzUmxlSFErUEM5emRtYzsiLCJzaXplcyI6IjUxMng1MTIiLCJ0eXBlIjoiaW1hZ2Uvc3ZnK3htbCJ9LHsic3JjIjoiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOXpkbWNpSUhacFpYZERiM2c5SWpBZ01DQTRNREFnT0RBd0lpQm1hV3hzUFNJak5qWTNaV1ZoSWo0OFkyNWpaM0pqWVhSbElEaHNRamxwUkM1VGFXMWxiaTVHWXlBT1EzcFBORUUyUVQ0aGMzUkFTSGN0VldSR1kzaHdPVGhDUVpOaE5FQm5lSHBSYzBsd1EzTnJSa2N6WjJ4R2F6UW5OMDJhVFpWYWtOb1JtOUJhbTVtVDBSS1pHRlBOVE5iTmtWNWRUWnRZMmxrVGxGT1ZFRlFiSEZZWVVGTFoyOUJNVXRHYm5CemJYUlFjMnhEWlhjNGQxbzVXRU5tU1UxT2VXSkVVR1JJUlRGWVUwNHZjV1pMTTNobWJ6TTJUUTA1TldsRVRtNWplSFZNZGxWNGN5OHdjVkJoV0N0U1JFdElWRlpqTXpjeVJtOUtObTl1ZW14aVluTkVSMVV5ZW1WamNIQmtObUZzTWtSa1RURkZRWEJOVkhWTVp6aElSRmxFZUVORFZXSXJSRmswTUN0VGFVZGhjSGhqYzJObFYwaFJXbWxvY0VGU2JGUmhRbEUwTkdwd1VVOTFlRkZoWjFaSE9EUkVWakZZVDA1VlRGaFhOVGN5VlhsTFJYZHpaRUZZT1hocGRVOHdhakE1UlVRcVpFTk5WMlpCWmpOQlIxQkJaVkJGYlRKQlVVVlRaVVZVWVNKc05HbzhhbXhIZUUxRWVreEtWRVZHVmtOTGVVZDBRWGhsTTBSSE5sVjRZakVpZVRBeFZVVXNlVUYxY0VOb2RXZGFkREZhZEU1SU9GVlFNbTB4VjJsMVJqQnFRVGRGVGtoV1JEZEtVRzVQVXpNcVJ6WnJkR0pqZDBGRmNtNUdOMVpUVmpGQ1R6WkVXV1pLVmtOb05EaFRlRGRXVlRkMGJTdGhWM0k0V1ZJM2JqTjFRVXhGYmpOR1NWZE5kbUZ4YVU5b1JVMTBhMUkzTURSWWIySlVhRU55VHpCbmFYaFJXbWt5Y25OUWVsSkVaMkZVVkhoQ1EybDFSMEZJVmpoSlRURnBkMXAwZEZkNmJIVkJhWGRXYVRNM1VqVXJNRXBVWjJKd2FFaElWMDVOVjBGa1IyMWFTR2hXZW1oaVp6ZDRXbE5ZV0hVeWJGbE5ZVVJaYzJNdmVHZzVXVWhRYWpRdlFqTktNbXBTV1dOelQzVkZablJ1UVVOamVURm5kalozZVVob1kwbEJRbkJXUWpkUWNHWlNOMVF3VVhaRU1uUXpVVE0xWW1aNlNGSk5kMDU2UVZwdlN5OUpUVXBRWkcxdmFWQk5aMWsxZFVkRVEwUlFaME00VEhSSmJXOTZSMnRrU0hjMFNHTjNTSGNpU1c1RVQzZG5WVGxCVURONFJrcGlUMUJSTjFKbFVVNXJSVWRvV2tNM1UzUmpOR0ozYlVoUlYxcHllSFZ0WjJveU0wRndhVWRETlVGdFZUbHVjR2QwVEhGdk9GcHNaM1JzUlZKR1FqUTNkV0k0Y1RWaFJtZDZWREpwY1RkT1JEUmNSSFozWlVWRGFsRjRVMDV0YlRRNFQyaHJNWGQ1VDJadVJVZGpZVEpxVUVsb1JrMURRa2hzYW1kUE9XMXZaREZzTVRWUE1XZFNha1ZJVDBGdFdWVnhWV0ZZU0U1UU1Ec3dTVVl4UWpCNU9FWnNTMWRTVUZOVk5rcG9TVlpGVEU5RVVIbEVWQ0lqUzJReFNucGtSek5KWlVFa2VFWkdSVkp1VjNGcGNYVnFhREJqTTFWU1owOVFORXRSYUZGaFlURlJabTFFVkVabGMwTktVRE5OTjJGVWNEQlZZVUF2UXpsVVRHOU9NMFJKVWsxSWFFTnJOVUk1ZERKWlRVUkNUR1ZGVlVORE5rOWlZWFEwUmtJNFJHTXhTMU1nYmpac0lsUktRMlJwWDNGbWIwUjFWU0F5Vm5CclNqSkJSa1JJWVhKaWEzRjJka1JoV1UxVWNURlVZaVJZWlVWTlNHSmhabWRQYzJGR1YzZHRWbGxZVnpWNVNrSjBjWGw0WjNKMVVFeGxNalJuWVVGclRHbEJWMFJhUm1neFZqVk9SSFZMZDFrNFdIUkRNRmRpVVVwdGJrUlFRa1ppTUZOV00yNTRibWhxVEdjMWFtVnBhV1F6UlZJMldqTktiR2xFYWxJelUxWlNabWRRZGtSa2FYRlJZVmhJVVdRMkwwTjNjRUo0YWpkcGJVdERiSGQ0UVVKTFVtMVJNWGt4Y1NGTU1HeE5ibVY1Y0VoaGN6WkpNMUpoV2t0YVYzVnNjbFJzU0hvdldsWjFWa1pSUmtabFNVNUVkR0pQWkVZd1kydEJVWGRrZGpsVlpWZGljRE5VVjNKTmFVaEVOSGhTZVRsMGJ6Rm5hRzFvVkhSVVNUUTJXVnBKWTBKclNuVnJUMUY0T1VsRlVFeERSMVpUVjA1aFJGQnJOVEJyVWl4Q1VtaFZaVmxNVWtwdGVYWjVSVU51SzBocVRWaDBSRGx2VkZWbloyRnNOalJVUVZSWWJVNXNhRlZQTmpKWllXRlRRV2RpTkVweGNuSm5VVWhrZUZSQlUxSkdhU1J5WldaV2NrTkdaR1JyU1hsdllTTkhWM1ppTUVGdFIwcGhVRFpqTlRZaGFXdElTVGRTY0hCc2JsYzVNSGRFU0VGaU1XRk9VM1pIUkdkdU1ESktjVU5XV2tRM1dGUlVaekZMV1ZsVEszVjNXbWMwU2todU0yNUVhMlZhVDFwcVpuWlZhVzEzU1VseFJrZFhUbGR2UVdod1prMXlhMmhJVlRNclJ6a3plRUpwV2tGTlFUQnRVVU14WVcxVFltZGtRbVJqUmtkRlRtWjFRV0pJTTBrNWFWZExlWFJ1YkUwdlRrODFZazl2VUVodFNHOVlhRkIzV0ZGS1EybE5ZblZMTUVJNGJHSnVkVU56ZDFwd2VreDVNUzl2WW1oU1JFRmxLMFl4YVRKMmFrRlVkRWhwV21sRlYxQnVSR05qTTB4cmJEaG5Ua0ZrZG1ORlUwZGhOVk4xTFRCRlozVnpUek5sY1ROWGFrZEZha000VG5KdGEwaElZVE5wVTJoTFRFUkRlbFZ0VjNJd1JGRnNUblJwTm1aWVYyTlVXa1ppTlhKcWQzVjFORWwwY2xWbldrODRkRXhSVTNkYVNrNUNUU05yVkZkdGFqVnNhSEJRU1cxc1JHOXZWMWxKVVRsWk9FVXhhRmh0VW1kUWJGUmFVR0YwVHpSeWNVdFVablJPVUdWMFkyRkVRbTFUTm5oRGJWUTNjV1pCTkRKb1JUTnVTM2xCUkdkNlNVRlNhVWc0V0VaVlRXZE1OVFJ2VTI5UFQzbERUakVqTlVOT1QzVk1VRkJ5WVRobGFFWkNXbGQyY1ZkWVlYcG5SMlpQZG1aM1pXUktkekJsZWpaNlVHZDBhMnNyWjBKbk1FUkRhUzE1YW1WcGRYQnpUWFpNWjJ4VmVHaHZaVFJxZWpOUk9IWkhSVUo0TlU5alIyVjNRbE01UW1VeVJ6Smxha05TUjBoblVsSkNlSFpqWVVjeFNDc3pNMnBwZERObGNVbE5ORFJ5TTNJelZUWlhja3AyUldsRFozTllUM1EyT1VOTVdscGlWM1ZVTkVKNlkybEtNRWgyY25wTU16a3djRWxIUW1oSVVsaENSbFV2UzFScVJqSnRXRTQ0ZDJ0S1VTUmxOM0pTUm1ZNVJrZEZVRU51VFZKMGQxaDVhR2RSVkd0U2JtaEJTWGhOUzJOeGNIZFVXWGhZY0VwaFNuVXZZMUl6U3k5aU1uTlJZMmhJWlVGRFFVSklSMDVyZEVsaVNIQjFjM1UwYUhwTlZIUk9WVkp4Y0RKRVFVSjNTWGQ1V0dGV01HcFFaMGQzU0VKa2JWSnNVekZuYjNWU1ZVRm1SMkZ1YWpsdWNXSjVUVkFLVWtOa01GTjJXVGxSYlRGWFNWWnpVa3h2UTZSU2NVUlFaMVJ6VEVKdWNGTkdOVVpVV0RoTFlqRjJNbkJCYUZweFNHMDNORVV3TjNJMGNVNWFVVFZ0WVE9PSIsInNpemVzIjoiMTkyeDE5MiIsInR5cGUiOiJpbWFnZS9zdmcreG1sIn1dLCJzdGFydF91cmwiOiIuLyIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwib3JpZW50YXRpb24iOiJwb3J0cmFpdCJ9">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 10px;
+            color: #333;
+        }
+        
+        .app-container {
+            max-width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            min-height: calc(100vh - 20px);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .install-instructions {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            background: #f1f3f4;
+            padding: 5px;
+            overflow-x: auto;
+        }
+        
+        .nav-tab {
+            flex: 1;
+            min-width: 80px;
+            padding: 12px 8px;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.85em;
+            white-space: nowrap;
+        }
+        
+        .nav-tab.active {
+            background: #667eea;
+            color: white;
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        }
+        
+        .nav-tab:not(.active) {
+            color: #666;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #fff, #f8f9fa);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid #667eea;
+        }
+        
+        .stat-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.8em;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .workout-card {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-left: 5px solid #e74c3c;
+        }
+        
+        .workout-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .workout-title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        
+        .workout-status {
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-completed {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .input-group {
+            margin-bottom: 15px;
+        }
+        
+        .input-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #555;
+        }
+        
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .input-field:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-small {
+            padding: 8px 12px;
+            font-size: 0.85em;
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        .progress-bar {
+            background: #e9ecef;
+            border-radius: 10px;
+            height: 20px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            border-radius: 8px;
+            font-size: 0.8em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-direction: column;
+            padding: 2px;
+        }
+        
+        .calendar-day.workout-completed {
+            background: #28a745;
+            color: white;
+        }
+        
+        .calendar-day.basketball-day {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .calendar-day.today {
+            border: 2px solid #667eea;
+            font-weight: bold;
+        }
+        
+        .exercise-list {
+            margin-top: 10px;
+        }
+        
+        .exercise-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .exercise-checkbox {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+        
+        .knee-pain-scale {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .pain-level {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: bold;
+            border: 2px solid #ddd;
+            transition: all 0.3s ease;
+        }
+        
+        .pain-level.selected {
+            background: #e74c3c;
+            color: white;
+            border-color: #c0392b;
+        }
+        
+        @media (max-width: 480px) {
+            .app-container {
+                padding: 15px;
+                border-radius: 15px;
+            }
+            
+            .quick-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .nav-tab {
+                font-size: 0.75em;
+                padding: 10px 6px;
+            }
+            
+            .knee-pain-scale {
+                justify-content: center;
+            }
+            
+            .pain-level {
+                width: 30px;
+                height: 30px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="header">
+            <h1>🏀 Fitness Recovery Tracker</h1>
+            <p>Knee Recovery • Weight Loss • Triathlon Prep</p>
+        </div>
+        
+        <div class="install-instructions">
+            <h3>📱 To Save as App:</h3>
+            <p><strong>Chrome:</strong> Menu (⋮) → "Add to Home screen"<br>
+            <strong>Samsung Internet:</strong> Menu → "Add page to" → "Home screen"<br>
+            <strong>Or:</strong> Bookmark this page for quick access!</p>
+        </div>
+        
+        <div class="nav-tabs">
+            <div class="nav-tab active" onclick="showTab('dashboard')">📊 Dashboard</div>
+            <div class="nav-tab" onclick="showTab('workouts')">💪 Workouts</div>
+            <div class="nav-tab" onclick="showTab('progress')">📈 Progress</div>
+            <div class="nav-tab" onclick="showTab('nutrition')">🍎 Nutrition</div>
+        </div>
+        
+        <!-- Dashboard Tab -->
+        <div id="dashboard" class="tab-content active">
+            <div class="quick-stats">
+                <div class="stat-card">
+                    <div class="stat-value" id="currentWeight">--</div>
+                    <div class="stat-label">Current Weight (kg)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="weightLoss">--</div>
+                    <div class="stat-label">Weight Lost (kg)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="workoutsWeek">--</div>
+                    <div class="stat-label">Workouts This Week</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="currentWeek">--</div>
+                    <div class
